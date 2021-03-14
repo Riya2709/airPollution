@@ -21,7 +21,7 @@ const getInfo =async(event)=>{
            //console.log([arrdata][0].results[0].locations[0].latLng.lat);
            const lat=arrdata[0].lat;
            const lon=arrdata[0].lon;
-           let url1=`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=3a41da93bd091afab19233d92d639244`;
+           let url1=`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=3a41da93bd091afab19233d92d639244`;
            const response1= await fetch(url1);
            const data1= await response1.json();
            const arrdata1=[data1]
