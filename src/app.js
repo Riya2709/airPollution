@@ -138,6 +138,6 @@ app.get("*",(req,res)=>{
 });
 
 
-app.listen(2000,()=>{
+app.listen(port,()=>{
     console.log(`listening to port ${port}`);
 });
