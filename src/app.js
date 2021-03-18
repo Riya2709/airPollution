@@ -32,15 +32,18 @@ app.post("/webhook",express.json(),(req,res)=>{
         const data1=await response1.json();
         const arrdata1=[data1];
         const a=arrdata1[0].list[0].main.aqi
+        const p=["Carbon dioxide","Nitric oxide","Nitrogen dioxide","Ozone","Sulfur dioxide","Particulate matter 2","Particulate matter 10","Ammonia"];
            if(a==1){
             agent.add(`The air quality in ${cityVal} is Good having components `);
             var jsonA=arrdata1[0].list[0].components;
             var jsonP=JSON.parse(JSON.stringify(jsonA));
+            var i=0;
             
 
             for(key in jsonP){
                 
-                    agent.add(key+":"+jsonP[key]);
+                    agent.add(p[i]+" is "+jsonP[key]);
+                    i=i+1;
                 
 
             }
@@ -49,11 +52,13 @@ app.post("/webhook",express.json(),(req,res)=>{
                agent.add(`The air quality in ${cityVal} is Fair having components`);
                var jsonA=arrdata1[0].list[0].components;
                var jsonP=JSON.parse(JSON.stringify(jsonA));
+               var i=0;
                
    
             
                    for(key in jsonP){
-                       agent.add(key+":"+jsonP[key]);
+                       agent.add(p[i]+" is "+jsonP[key]);
+                       i=i+1;
                    }
    
                
@@ -62,11 +67,13 @@ app.post("/webhook",express.json(),(req,res)=>{
              agent.add(`The air quality in ${cityVal} is Moderate having components`);
              var jsonA=arrdata1[0].list[0].components;
              var jsonP=JSON.parse(JSON.stringify(jsonA));
+             var i=0;
              
  
              for(key in jsonP){
             
-                     agent.add(key+":"+jsonP[key]);
+                     agent.add(p[i]+" is "+jsonP[key]);
+                     i=i+1;
                  
  
              }
@@ -75,11 +82,13 @@ app.post("/webhook",express.json(),(req,res)=>{
             agent.add(`The air quality in ${cityVal} is Poor having components`);
             var jsonA=arrdata1[0].list[0].components;
             var jsonP=JSON.parse(JSON.stringify(jsonA));
+            var i=0;
             
 
             for(key in jsonP){
                 
-                    agent.add(key+":"+jsonP[key]);
+                    agent.add(p[i]+" is "+jsonP[key]);
+                    i=i+1;
                 
 
             }
@@ -88,11 +97,12 @@ app.post("/webhook",express.json(),(req,res)=>{
             agent.add(`The air quality in ${cityVal} is Very Poor having components`);
             var jsonA=arrdata1[0].list[0].components;
             var jsonP=JSON.parse(JSON.stringify(jsonA));
-            
+            var i=0;
 
             for(key in jsonP){
             
-                    agent.add(key+":"+jsonP[key]);
+                    agent.add(p[i]+" is "+jsonP[key]);
+                    i=i+1;
                 
 
             }
@@ -102,11 +112,13 @@ app.post("/webhook",express.json(),(req,res)=>{
            agent.add(`The air quality in ${cityVal} having components`);
            var jsonA=arrdata1[0].list[0].components;
            var jsonP=JSON.parse(JSON.stringify(jsonA));
+           var i=0;
            
 
            for(key in jsonP){
         
-                   agent.add(key+":"+jsonP[key]);
+                   agent.add(p[i]+" is "+jsonP[key]);
+                   i=i+1;
                
 
            }
